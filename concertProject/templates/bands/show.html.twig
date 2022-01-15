@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ConcertController!{% endblock %}
+
+{% block body %}
+
+
+    <h1> {{ bandsById.getName() }}</h1>
+
+        <h2>Liste des membres du groupe :</h2>
+
+    <table>
+        <thead>
+        <tr>
+            <th colspan="2">{{ bandsById.getName() }}</th>
+        </tr>
+        </thead>
+        <tbody>
+            {% for donnees in bandsById.getArtists() %}
+                <tr>
+                    <td>{{ donnees.getFirstName() }}</td>
+                    <td>{{ donnees.getName() }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+
+
+
+
+
+
+
+{% endblock %}
+
+

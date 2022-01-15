@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ConcertController!{% endblock %}
+
+{% block body %}
+
+
+    <h1>Bands list</h1>
+
+    <div class="container">
+        <div class="row row-cols-4">
+
+            {% for donnees in bands %}
+
+                <div class="col">
+                    <div class="card">
+                        <img src="{{ donnees.getPicture }}" class="card-img-top" alt="Not Found">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ donnees.getName() }}</h5>
+                            <p class="card-text">
+                                Kind : {{ donnees.getKind() }}</p>
+                                Years of creation : {{ donnees.getYearCreation()}}
+                            </p>
+                            <a href="{{ path('bands_show', { 'id': donnees.getId() }) }}" class="btn btn-primary">More</a>
+                        </div>
+                    </div>
+                <div>
+
+            {% endfor %}
+
+        </div>
+    </div>
+
+
+        {% endblock %}
+
+

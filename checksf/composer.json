@@ -1,0 +1,13 @@
+{
+    "require": {
+        "symfony/orm-pack": "^2.2"
+    },
+    "config": {
+        "allow-plugins": {
+            "composer/package-versions-deprecated": true
+        }
+    },
+    "require-dev": {
+        "symfony/maker-bundle": "^1.36"
+    }
+}
