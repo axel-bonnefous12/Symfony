@@ -8,24 +8,29 @@
     <h1> {{ bandsById.getName() }}</h1>
 
         <h2>Liste des membres du groupe :</h2>
+<div class="container">
+            <div class="row">
+                <div class="col-6">
 
-    <table>
-        <thead>
-        <tr>
-            <th colspan="2">{{ bandsById.getName() }}</th>
-        </tr>
-        </thead>
-        <tbody>
-            {% for donnees in bandsById.getArtists() %}
-                <tr>
-                    <td>{{ donnees.getFirstName() }}</td>
-                    <td>{{ donnees.getName() }}</td>
-                </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+                    <table class="table table-dark table-striped">
+                        <thead>
+                        <tr>
+                            <th colspan="2">{{ bandsById.getName() }}</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                            {% for donnees in bandsById.getArtists() %}
+                                <tr>
+                                    <td>{{ donnees.getFirstName() }}</td>
+                                    <td>{{ donnees.getName() }}</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
 
-
+                </div>
+            </div>
+</div>
 
 
 
