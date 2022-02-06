@@ -1,0 +1,64 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Bands index{% endblock %}
+
+{% block body %}
+
+
+    <br><br><br><br><br><br>
+    <div class="container-lg">
+        <div class="row">
+            <div class="mx-auto">
+                <div class="col-12">
+                    <table class="table table-dark table-striped">
+                        <thead>
+                        <tr>
+                            <th style="text-align: center" colspan="6">Bands</th>
+                        </tr>
+                        <tr>
+                            <th>Id</th>
+                            <th>Name</th>
+                            <th>Picture</th>
+                            <th>Kind</th>
+                            <th>YearCreation</th>
+                            <th>actions</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for band in bands %}
+                            <tr>
+                                <td>{{ band.id }}</td>
+                                <td>{{ band.name }}</td>
+                                <td>{{ band.picture }}</td>
+                                <td>{{ band.kind }}</td>
+                                <td>{{ band.yearCreation }}</td>
+                                <td>
+                                    <a class="btn btn-light" href="{{ path('bands_show', {'id': band.id}) }}">show</a>
+                                    <a class="btn btn-light" href="{{ path('bands_edit', {'id': band.id}) }}">edit</a>
+                                </td>
+                            </tr>
+                        {% else %}
+                            <tr>
+                                <td colspan="6">no records found</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="d-flex align-items-center justify-content-center">
+                    <a class='btn btn-secondary' href="{{ path('bands_new') }}">Create new</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

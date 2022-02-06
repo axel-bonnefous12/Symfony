@@ -5,23 +5,26 @@
 {% block body %}
 
 
-    <h1>Bands list</h1>
+    <br>
+    <h1 style="text-align: center">Bands</h1>
+    <br>
 
     <div class="container">
 
         <div class="row">
-            {% for donnees in bands %}
+            {% for band in bands %}
 
                 <div class="col-3">
                     <div class="card">
-                        <img src="{{ donnees.getPicture }}" class="card-img-top" alt="Not Found">
+                        <img src="{{ band.getPicture }}" class="card-img-top" alt="Not Found">
                         <div class="card-body">
-                            <h5 class="card-title">{{ donnees.getName() }}</h5>
+                            <h5 class="card-title">{{ band.getName() }}</h5>
                             <p class="card-text">
-                                Kind : {{ donnees.getKind() }}
-                                Years of creation : {{ donnees.getYearCreation()}}
+                                Kind : {{ band.getKind() }}
+                                Years of creation : {{ band.getYearCreation()}}
                             </p>
-                            <a href="{{ path('bands_show', { 'id': donnees.getId() }) }}" class="btn btn-primary">More</a>
+
+                            <a href="{{ path('show_band', { 'id': band.getId() }) }}" class="btn btn-dark">More</a>
                         </div>
                     </div>
                 </div>
@@ -29,6 +32,8 @@
         </div>
     </div>
 
-        {% endblock %}
+
+
+{% endblock %}
 
 

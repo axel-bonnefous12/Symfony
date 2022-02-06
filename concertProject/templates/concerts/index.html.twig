@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ConcertController!{% endblock %}
+
+{% block body %}
+
+    <br><br><br><br><br><br><br>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+
+            </div>
+                <table class="table table-dark table-striped">
+                    <thead>
+                    <tr>
+                        <th style="text-align: center" colspan="5">Upcoming concerts</th>
+                    </tr>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Bands</th>
+                        <th scope="col">Rooms</th>
+                        <th scope="col">Start date</th>
+                        <th scope="col">End date</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% set compteur = 0 %}
+                    {% for concert in concerts %}
+                        {% set compteur = compteur + 1 %}
+                        <tr>
+                            <th scope="row">{{ compteur }}</th>
+                            <td> {{ concert.band.name }}</td>
+                            <td> {{ concert.room.name }}</td>
+                            <td> {{ concert.begin|date('Y-m-d') }}</td>
+                            <td> {{ concert.end|date('Y-m-d') }}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+{% endblock %}
+
+

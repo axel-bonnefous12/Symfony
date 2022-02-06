@@ -14,13 +14,13 @@ class RoomsFixtures extends Fixture
     public function load(ObjectManager $manager): void
     {
         $room1 = new Rooms();
-        $room1->setName('Big place concert')
+        $room1->setName('Big place concerts')
                 ->setCapacity(550)
                 ->setAddress('Place de la comédie');
         $manager->persist($room1);
 
         $room2 = new Rooms();
-        $room2->setName('Little place concert')
+        $room2->setName('Little place concerts')
             ->setCapacity(80)
             ->setAddress('Place de Gare Saint Roch');
         $manager->persist($room2);

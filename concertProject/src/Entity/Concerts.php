@@ -33,12 +33,12 @@ class Concerts
     private $room;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Organisations::class, inversedBy="concert")
+     * @ORM\ManyToOne(targetEntity=Organisations::class, inversedBy="concerts")
      */
     private $organisation;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Bands::class, inversedBy="concert")
+     * @ORM\ManyToOne(targetEntity=Bands::class, inversedBy="concerts")
      */
     private $band;
 

@@ -19,32 +19,18 @@ class ConcertsRepository extends ServiceEntityRepository
         parent::__construct($registry, Concerts::class);
     }
 
-    // /**
-    //  * @return Concerts[] Returns an array of Concerts objects
-    //  */
-    /*
-    public function findByExampleField($value)
-    {
-        return $this->createQueryBuilder('c')
-            ->andWhere('c.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('c.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
-    }
+    /**
+    * @return Concerts[] Returns an array of Concerts objects
     */
 
-    /*
-    public function findOneBySomeField($value): ?Concerts
+    public function findDateWhereDateHigheThanToday()
     {
-        return $this->createQueryBuilder('c')
-            ->andWhere('c.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
+        return $this->createQueryBuilder('C')
+                    ->andWhere('C.begin > CURRENT_DATE()')
+                    ->getQuery()
+                    ->getResult();
     }
-    */
+
+
+
 }

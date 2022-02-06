@@ -1,0 +1,47 @@
+
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+
+    <br>
+    <h1 style="text-align: center">Concerts</h1>
+    <br>
+
+
+
+    <div class="container">
+
+        <div class="row">
+            {% for concert in concerts %}
+
+                <div class="col-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h3 class="card-title">{{ concert.getRoom().getName()}}</h3>
+                                <p>Group : {{ concert.getBand().getName() }}</p>
+                            <a class='btn' style="color: white; background-color: #B0413E" href="{{ path('concert_delete', {'id': concert.getId()}) }}">Delete</a>
+                            <a class='btn' style="color: white; background-color: #F0C300" href="{{ path('concert_update', {'id': concert.getId()}) }}">Modify</a>
+                            <a class='btn' style="color: white; background-color: #1FA055" href="{{ path('show_concert', { 'id': concert.getId() }) }}" class="btn btn-primary">More</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <br>
+    <br>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="d-flex align-items-center justify-content-center">
+                    <a class='btn btn-secondary' href="{{ path('concert_create') }}">Create new</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}
